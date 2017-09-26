@@ -10,4 +10,9 @@ class Category extends Model
     protected $table="categories";
     //Datos que se mostraran en los objetos jason
     protected $fillable=['name'];
+
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
 }

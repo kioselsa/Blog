@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('articles',function ()
+{
+    echo"Esta es la seccion de articulo";
+});
+

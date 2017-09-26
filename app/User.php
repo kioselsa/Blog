@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //Relacion con la tabla de articulos
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
+
+    //Relacion con la tabla de usuarios
+    public function user()
+    {
+        return $this->belongsTo('App\Article');
+    }
 }
