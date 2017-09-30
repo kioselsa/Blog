@@ -15,8 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('articles',function ()
-{
-    echo"Esta es la seccion de articulo";
+ Route::group(['prefix'=>'articles'],function(){
+
+    Route::get('view/{id}',[
+            'uses'=>'TestController@view',
+            'as'=>'articlesView'
+    ]);
 });
+
+
 
