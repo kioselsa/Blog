@@ -14,7 +14,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+      $users=User::orderby('id','asc')->paginate(5); //Consulta todos los usuarios y los ordena, ademas pagina la consulta
+      return view('admin.users.index')->with('users',$users); //Llama a la vista y le envia los usuarios
     }
 
     /**
