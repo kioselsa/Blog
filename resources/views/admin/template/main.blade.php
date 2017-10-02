@@ -21,6 +21,9 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--  Ruta para usar los mensajes laracast -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Fin de rutas css******************** -->
 
     <!-- Custom styles for this template -->
@@ -37,25 +40,38 @@
     <![endif]-->
 </head>
 
-<body>
-
-<div class="container">
+<body class="container">
 
     <!-- Static navbar -->
     @include('admin.template.partials.nav')
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <section>
-            @yield('content','Default')
-        </section>
+    <!-- Diseño del contenido del formulario -->
+    <section class="section-admin">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@yield('title')</h3>
+            </div>
+            <div class="panel-body">
+                <section>
+                    @include('flash::message') <!- Esto es para mostrar los mensajes en los formularios -->
+                    @yield('content','Default')
+                </section>
+            </div>
+        </div>
+    </section>
 
-        <footer>
+    <footer class="admin-footer">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse">
+                    <p class="navbar-text">Todos los derechos reservados</p>
+                    <p class="navbar-text navbar-right"><b>Oscar Delgado</b></p>
+                </div>
+            </div>
+        </nav>
+    </footer>
 
-        </footer>
-    </div>
 
-</div> <!-- /container -->
 
 
 <!-- Bootstrap core JavaScript

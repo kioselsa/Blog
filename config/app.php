@@ -181,6 +181,7 @@ return [
          * Providers personales
          */
         App\Providers\AnnotationsServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
