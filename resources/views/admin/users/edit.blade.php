@@ -1,26 +1,19 @@
-dd('Hola');
-
 @extends('admin.template.main')
 
-@section('title','Editar Usuario'.$user->name)
+@section('title','Editar el usuario | '.$user->name)
 
 @section('content')
+    {!! Form::model($user, array('route' => array('users.update', $user->id), 'method' => 'PUT')) !!}
 
-    {!! Form::open(['route'=>'users.edit','method'=>'GET']) !!}
 
     <div class="form-group">
         {!! Form::label('name','Nombre') !!}
-        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre Completo','required']) !!}
+        {!! Form::text('name',$user->name,['class'=>'form-control','placeholder'=>'Nombre Completo','required']) !!}
     </div>
 
     <div class="form-group">
         {!! Form::label('mail','Correo Electronico') !!}
-        {!! Form::text('email',null,['class'=>'form-control','placeholder'=>'example@mail.com','required']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('password','Contraseña') !!}
-        {!! Form::password('password',['class'=>'form-control','placeholder'=>'***********','required']) !!}
+        {!! Form::text('email',$user->email,['class'=>'form-control','placeholder'=>'example@mail.com','required']) !!}
     </div>
 
     <div class="form-group">
@@ -29,7 +22,7 @@ dd('Hola');
     </div>
 
     <div class="form-group">
-        {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Editar',['class'=>'btn btn-primary']) !!}
     </div>
 
 
