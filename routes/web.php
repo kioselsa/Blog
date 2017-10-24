@@ -22,7 +22,10 @@ Route::get('/', function () {
         'uses'=>'UsersController@destroy',
         'as'=> 'admin.users.destroy'
         ]);
+
+    Route::resource('categories','CategoriesController');
 });
+
 
 
 

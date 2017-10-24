@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //Relacion con la tabla de articulos
+    //Relacion con la tabla de Usuarios(Uno)-Articulos(Muchos)
     public function articles()
     {
         return $this->hasMany('App\Article');

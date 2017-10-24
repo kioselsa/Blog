@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use Laracasts\Flash\Flash;
+use App\User;//Es el nombre del modelo con el que va a trabajar el controlador
+use Laracasts\Flash\Flash; //Es el paquete para poder usar los mensajes de alerta tipo bootstrap
+use App\Http\Requests\UserRequest;  //Esta linea es para agregar la clase que nos servira para validar el formulario
 
 class UsersController extends Controller
 {
@@ -35,7 +36,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = new User($request->all());
         //Para encriptar la contraseña ponemos lo siguiente

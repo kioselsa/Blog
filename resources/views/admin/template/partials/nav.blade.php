@@ -13,7 +13,7 @@
                 <a class="nav-link" href="{{route('users.index')}}">Usuarios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Categorias</a>
+                <a class="nav-link disabled" href="{{route('categories.index')}}">Categorias</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Articulos</a>

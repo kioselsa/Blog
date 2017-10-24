@@ -10,6 +10,7 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('title','Default')|Panel de administración</title>
+
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
 
     <!-- Latest compiled and minified CSS -->
@@ -53,7 +54,8 @@
             </div>
             <div class="panel-body">
                 <section>
-                    @include('flash::message') <!- Esto es para mostrar los mensajes en los formularios -->
+                    @include('flash::message') <!-- Esto es para mostrar los mensajes en los formularios -->
+                    @include('admin.template.partials.errors') <!-- Esta linea inclute el manejo de errores, en todos los formularios -->
                     @yield('content','Default')
                 </section>
             </div>
