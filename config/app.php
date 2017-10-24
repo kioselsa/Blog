@@ -77,8 +77,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+    /*Cambiamos la palabra en por es para usar el idioma en esppañol*/
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,8 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    /*Tambien remplasamos la palabra en por es*/
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +183,7 @@ return [
          */
         App\Providers\AnnotationsServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Laraveles\Spanish\SpanishServiceProvider::class,
 
     ],
 
