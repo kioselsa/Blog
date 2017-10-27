@@ -39,6 +39,10 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="container">
@@ -86,5 +90,9 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="{{asset('plugins/js/jquery-3.2.1.js')}}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+
+    <!-- Scripts para menu de cierre de sesion-->
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

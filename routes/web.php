@@ -12,10 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
- Route::group(['prefix'=>'admin'],function(){
+
+ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
     Route::resource('users','UsersController');
     Route::get('users/{id}/destroy',[
@@ -28,10 +29,21 @@ Route::get('/', function () {
         'uses'=>'CategoriesController@destroy',
         'as'=>'admin.categories.destroy'
     ]);
+
+     Route::resource('tags','TagsController');
+     Route::get('tags/{id}/destroy',[
+         'uses'=>'TagsController@destroy',
+         'as'=>'admin.tags.destroy'
+     ]);
+
+     Route::resource('articles','ArticlesController');
+     Route::get('articles/{id}/destroy',[
+         'uses'=>'ArticlesController@destroy',
+         'as'=>'admin.articles.destroy'
+     ]);
+
 });
 
+Auth::routes();
 
-
-
-
-
+Route::get('/home', 'HomeController@index')->name('home');

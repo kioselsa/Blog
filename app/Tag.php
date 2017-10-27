@@ -13,4 +13,10 @@ class Tag extends Model
     {
         return $this->belongsToMany('App\Article');
     }
+
+    //Crea el scope para las busquedas de tags
+    public function scopeSearch($query,$name)
+    {
+        return $query->where('name','LIKE',"%$name%");
+    }
 }
