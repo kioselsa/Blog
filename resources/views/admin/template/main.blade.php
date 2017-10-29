@@ -40,8 +40,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!--  Ruta para usar el plugin chosen -->
+    <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
+
+
 
 </head>
 
@@ -90,6 +92,11 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="{{asset('plugins/js/jquery-3.2.1.js')}}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
+
+    <!-- Plugin para usar el script js -->
+    <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
+
+    @yield('js')
 
     <!-- Scripts para menu de cierre de sesion-->
     <script src="{{ asset('js/app.js') }}"></script>
