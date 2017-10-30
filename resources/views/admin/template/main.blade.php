@@ -43,6 +43,9 @@
     <!--  Ruta para usar el plugin chosen -->
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.css')}}">
 
+    <!--  Ruta para usar el plugin Trumbowyg que da estilo a los text area-->
+    <link rel="stylesheet" href="{{asset('plugins/Trumbowyg/ui/trumbowyg.css')}}">
+
 
 
 </head>
@@ -93,8 +96,11 @@
 <script src="{{asset('plugins/js/jquery-3.2.1.js')}}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
 
-    <!-- Plugin para usar el script js -->
+    <!-- Plugin para usar el script chosen -->
     <script src="{{asset('plugins/chosen/chosen.jquery.js')}}"></script>
+
+    <!-- Plugin para usar el script trumbowyg -->
+    <script src="{{asset('plugins/Trumbowyg/trumbowyg.js')}}"></script>
 
     @yield('js')
 
