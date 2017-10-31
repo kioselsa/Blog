@@ -49,4 +49,10 @@ class Article extends Model
     {
         return $this->belongsToMany('App\Tag');
     }
+
+    //Crea el scope para las busquedas de articulos
+    public function scopeSearch($query,$title)
+    {
+        return $query->where('title','LIKE',"%$title%");
+    }
 }

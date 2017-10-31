@@ -18,9 +18,16 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.articles.index');
+        $articles=Article::Search($request->title)->orderBy('id','asc')->paginate(5); //Traemos la lista de todos los articulos
+        //Esta funcion trae todas las relaciones de la tabla articulos
+        $articles->each(function ($articles){
+            //La funcion each, hace un recorrido por cada articulo y busca sus datos relacionados
+            $articles->user;
+        });
+
+        return view('admin.articles.index')->with('articles',$articles); //Le mandamos los datos de los articulos a la vista
     }
 
     /**
@@ -94,7 +101,20 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article=Article::find($id);
+        $article->category;//Trae la categoria del articulo en cuestion, usando la relacion con esta tabla
+        $categories=Category::orderBy('name','DESC')->pluck('name','id');//Nos trae todas las categorias y las pone en un objeto
+        $tags=Tag::orderBy('name','DESC')->pluck('name','id');//Nos trae todos los tags y los pone en un objeto
+
+        $my_tags=$article->tags->pluck('id')->toArray(); //Obtenemos la lista de tags correspondientesss a un articulo
+        //y los guardamos en un arreglo para usarlos en el select multiple.
+
+        return view('admin.articles.edit')
+            ->with('categories',$categories)
+            ->with('article',$article)
+            ->with('tags',$tags)
+            ->with('my_tags',$my_tags);
+        //Le pasamos con with todos los datos a la vista edit
     }
 
     /**
@@ -106,7 +126,21 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Guarda los cambios de la edicion en las tablas correspondientes
+
+        //Guarda los datos del articulo
+        $article=Article::find($id);
+        $article->fill($request->all());
+        $article->save();
+
+        //Guarda los tags
+        $article->tags()->sync($request->tags);//Como son varios y estan relacionados con los articulos usaremos sync
+
+        //Mensaje de edicion
+        Flash::warning('Se ha editado el articulo '.$article->title.' de forma correcta');
+
+        return redirect()->route('articles.index');
+
     }
 
     /**
@@ -117,6 +151,12 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article=Article::find($id);
+        $article->delete();
+
+        //Mensaje de edicion
+        Flash::error('Se ha borrado el articulo '.$article->title.' de forma correcta');
+
+        return redirect()->route('articles.index');
     }
 }

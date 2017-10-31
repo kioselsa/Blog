@@ -20,7 +20,7 @@
                         <a class="nav-link" href="{{route('articles.index')}}">Articulos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Imagenes</a>
+                        <a class="nav-link" href="{{route('admin.images.index')}}">Imagenes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('tags.index')}}">Tags</a>
